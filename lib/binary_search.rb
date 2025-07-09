@@ -1,15 +1,19 @@
+# frozen_string_literal: true
+
 class BinarySearch
-  attr_accessor :element_list
-  def initialize(arr)
-    @element_list = arr
+  attr_accessor :steps
+
+  def initialize
+    @steps = 0
   end
 
-  def search(target_element)
+  def search(arr = [], target_element = 0)
     low = 0
-    high = @element_list.size - 1
+    high = arr.size - 1
     while low <= high
+      @steps += 1
       mid = (low + high) / 2
-      guess = @element_list[mid]
+      guess = arr[mid]
       if guess == target_element
         return mid
       elsif guess > target_element
@@ -19,5 +23,9 @@ class BinarySearch
       end
     end
     nil
+  end
+
+  def self.calculate_steps(num = 0)
+    Math.log2(num)
   end
 end
