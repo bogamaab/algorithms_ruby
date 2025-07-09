@@ -5,17 +5,17 @@ class BinarySearch
   end
 
   def search(target_element)
-    minor = 0
-    major = @element_list.size - 1
-    while minor <= major
-      mid = (minor + major) / 2
-      estimation = @element_list[mid]
-      if estimation == target_element
+    low = 0
+    high = @element_list.size - 1
+    while low <= high
+      mid = (low + high) / 2
+      guess = @element_list[mid]
+      if guess == target_element
         return mid
-      elsif estimation > target_element
-        major = mid - 1
+      elsif guess > target_element
+        high = mid - 1
       else
-        minor = mid + 1
+        low = mid + 1
       end
     end
     nil
