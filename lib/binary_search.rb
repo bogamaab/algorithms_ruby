@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BinarySearch
-  attr_accessor :steps
+  attr_reader :steps
 
   def initialize
     @steps = 0
@@ -22,6 +22,7 @@ class BinarySearch
         low = mid + 1
       end
     end
+    @steps = 0
     nil
   end
 
